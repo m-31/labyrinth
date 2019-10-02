@@ -10,8 +10,7 @@ We use Git and Github, acquire HTML and CSS knowledge, program JavaScript and wr
 In short: **we learn how to code**
 
 ## Day 1: Motivation, Goals
-[day_01](day_01)
+[day_01](day_01/README.md)
 
 ## Day 2: Installations
-[day_02](day_02)
-
+[day_02](day_02/README.md)
