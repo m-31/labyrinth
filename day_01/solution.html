@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<!-- 2019-10-01 copied from https://technologies4.me/articles/growing-tree-maze-algorithm-javascript-a22/growing-tree-method-p1/ -->
+<head>
+
+    <script type="text/javascript">
+        var ctx = null, game = null;
+        var mazeMap = null, mazeW = 19, mazeH = 9;
+
+        window.onload = function() {
+            game = document.getElementById('game');
+            ctx = game.getContext('2d');
+            ctx.font = "bold 10pt sans-serif";
+
+            mazeMap = new Maze(40,40);
+
+            requestAnimationFrame(drawGame);
+
+            document.getElementById('reset').addEventListener('click', function() {
+                mazeMap = new Maze(40,40, document.getElementById('next-cell').value);
+            });
+        };
+
+        function drawGame()
+        {
+            if(ctx==null) { return; }
+
+            ctx.fillStyle = "#ffffff";
+            ctx.fillRect(0, 0, 1200, 1000);
+
+            ctx.fillStyle = "#000000";
+
+            for(var y = 0; y < mazeMap.gridH; ++y)
+            {
+                for(var x = 0; x < mazeMap.gridW; ++x)
+                {
+                    if(mazeMap.gridMap[y][x]==0) { ctx.fillRect(10 * x, 10 * y, 10, 10); }
+                }
+            }
+
+            requestAnimationFrame(drawGame);
+        }
+
+        function Maze(w, h, nextCell, startX, startY)
+        {
+            this.w = (isNaN(w) || w < 5 || w > 999 ? 20 : w);
+            this.h = (isNaN(h) || h < 5 || h > 999 ? 20 : h);
+            this.map = new Array();
+            for(var mh = 0; mh < h; ++mh) { this.map[mh] = new Array(); for(var mw = 0; mw < w; ++mw) { this.map[mh][mw] = {'n':0,'s':0,'e':0,'w':0,'v':0}; } }
+
+            this.nextCell = (typeof nextCell=='undefined' || (nextCell!='first' && nextCell!='last' && nextCell!='random') ? 'random' : nextCell);
+
+            this.startX = (isNaN(startX) || startX<0 || startX>=w ? 0 : startX);
+            this.startY = (isNaN(startY) || startY<0 || startY>=h ? 0 : startY);
+
+            this.build();
+        }
+        Maze.prototype.toGrid = function()
+        {
+            var grid = new Array();
+            for(var mh = 0; mh < (this.h * 2 + 1); ++mh) { grid[mh] = new Array(); for(var mw = 0; mw < (this.w * 2 + 1); ++mw) { grid[mh][mw] = 0; } }
+
+            for(var y = 0; y < this.h; ++ y)
+            {
+                var py = (y * 2) + 1;
+
+                for(var x = 0; x < this.w; ++x)
+                {
+                    var px = (x * 2) + 1;
+
+                    grid[py][px] = 1;
+
+                    if(this.map[y][x]['n']==1) { grid[(py-1)][px] = 1; }
+                    if(this.map[y][x]['s']==1) { grid[(py+1)][px] = 1; }
+                    if(this.map[y][x]['e']==1) { grid[py][(px+1)] = 1; }
+                    if(this.map[y][x]['w']==1) { grid[py][(px-1)] = 1; }
+                }
+            }
+
+            this.gridMap = grid;
+            this.gridW	= grid.length;
+            this.gridH	= grid[0].length;
+        };
+        Maze.prototype.build = function(dir)
+        {
+            var c = new Array();
+            c.push({x:this.startX, y:this.startY});
+            this.map[this.startY][this.startX]['v'] = 1;
+
+            var modDir = {
+                'n' : { y : -1, x : 0, o : 's' },
+                's' : { y : 1, x : 0, o : 'n' },
+                'w' : { y : 0, x : -1, o : 'e' },
+                'e' : { y : 0, x : 1, o : 'w' }
+            };
+
+            while(c.length>0)
+            {
+                var i = (this.nextCell=='first' ? 0 : (this.nextCell=='last' ? c.length-1 : Math.floor((Math.random()*10000)%c.length)));
+                var cell = c[i];
+
+                // Check for neighbours
+                var n = new Array();
+                if(cell.x>0 && this.map[cell.y][(cell.x-1)]['v']==0) { n.push('w'); }
+                if(cell.x<(this.w-1) && this.map[cell.y][(cell.x+1)]['v']==0) { n.push('e'); }
+                if(cell.y>0 && this.map[(cell.y-1)][cell.x]['v']==0) { n.push('n'); }
+                if(cell.y<(this.h-1) && this.map[(cell.y+1)][cell.x]['v']==0) { n.push('s'); }
+
+                if(n.length==0) { c.splice(i, 1); continue; }
+
+                var dir = n[Math.floor((Math.random()*10000)%n.length)];
+
+                var destX = (cell.x + modDir[dir].x);
+                var destY = (cell.y + modDir[dir].y);
+
+                this.map[cell.y][cell.x][dir] = 1;
+                this.map[destY][destX][modDir[dir].o] = 1;
+                this.map[destY][destX]['v'] = 1;
+                c.push({x:destX, y:destY});
+            }
+
+            this.toGrid();
+        };
+
+    </script>
+</head>
+<body>
+
+<p>Binary Tree maze.</p>
+<a href="https://technologies4.me/articles/growing-tree-maze-algorithm-javascript-a22/growing-tree-method-p1/">Growing tree maze algorithm in Javascript</a>
+<p>
+    The Growing Tree method is a fantastic method for creating mazes. Starting from a chosen cell, we put this cell in to a list and do the following:
+<ul>
+    <li>Mark the current cell as visited</li>
+    <li>Create a list of neighbours the are not marked as visited and fall within map bounds</li>
+    <li>Select a random cell from the neighbours list and create a 'tunnel' by flagging the walls as open between the current cell and the neighbouring cell</li>
+    <li>Mark the selected cell as visited and add it to the list with our starting cell</li>
+</ul>
+    Then, we either select the newest cell we added or a random cell from the list and repeat the process. The method is simple and produces very nice mazes without obvious directional bias.
+</p>
+<p>If you cannot see the maze below, check you have Javascript enabled and that your browser supports the Canvas element.</p>
+Grow cells from <select id="next-cell">
+    <option value="last">Last added</option>
+    <option value="random">Random</option>
+</select><input id="reset" type="button" value="Reset maze"><br>
+<canvas id="game" width="1200" height="1000"></canvas>
+
+</body>
+</html>
