@@ -8,13 +8,13 @@ Install Windows Package Manager
 
 https://chocolatey.org
 
+install now
 
 - Click Start and type “powershell“
 - Right-click Windows Powershell and choose “Run as Administrator“
 - Paste the following command into Powershell and press enter.
   
-      Set-ExecutionPolicy Bypass -Scope Process -Force; `
-         iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))`
+      Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
 - Answer Yes when prompted
 - Close and reopen an elevated PowerShell window to start using choco
