@@ -14,3 +14,10 @@ In short: **we learn how to code**
 
 ## Day 2: Installations
 [day_02](day_02/README.md)
+
+## Day 3: Installations, 2
+[day_03](day_03/README.md)
+
+## Day 4: Installations, 3
+[day_04](day_04/README.md)
+
