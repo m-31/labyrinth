@@ -9,15 +9,19 @@ personal settings / emails
 [x] keep my email addresses private
 [x] block command line pushes that expose my email
 
+copy email address for web-based Git operations
+
+    ...@users.noreply.github.com
+
+
 ## git
 
 Open Git Bash.
-Run the following commands to configure your Git username and email using the following commands, replacing Emma's name
-with your own. These details will be associated with any commits that you create:
+Run the following commands to configure your Git username and email using the following commands, replacing emma name with your own github name and the previously saved email address. These details will be associated with any commits that you create:
 
 
-$ git config --global user.name "emma"
-$ git config --global user.email "eparis@atlassian.com"
+    git config --global user.name "emma"
+    git config --global user.email "...@users.noreply.github.com"
 
 Further documentation: 
 https://www.linode.com/docs/development/version-control/how-to-configure-git/
