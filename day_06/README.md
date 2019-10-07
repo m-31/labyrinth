@@ -1,4 +1,4 @@
-# Day 06
+# Day 06, 07 and 08
 
 We learn basic JavaScript
 
