@@ -1,6 +1,6 @@
 # Day 05
 
-We code something
+*hello world* in JavaScript
 
 # node
 

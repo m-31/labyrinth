@@ -21,3 +21,9 @@ In short: **we learn how to code**
 ## Day 4: Installations, 3
 [day_04](day_04/README.md)
 
+## Day 5: Hello World
+[day_05](day_05/README.md)
+
+## Day 6: Simple Exercises
+[day_06](day_06/README.md)
+
