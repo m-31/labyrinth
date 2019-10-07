@@ -2,12 +2,11 @@
 
 We code something
 
+# node
 
-https://www.javascript.com/try
+    choco install nodejs
 
-watch
 
-https://www.youtube.com/watch?v=u21W_tfPVrY
+hello world in JavaScript
 
-https://www.youtube.com/watch?v=D3CDmRjPdcE
-
+debug within Visual Code View
