@@ -3,7 +3,7 @@
 // N, S, E, W = 1, 2, 4, 8
 
 let passages =  [
-    [4, 14, 8, 2, 6, 8, 2, 6, 8, 2],
+    [4, 14, 8, 2, 6, 8, 2, 6, 8, 3],
     [4, 11, 4, 15, 13, 12, 13, 9, 6, 9],
     [2, 3, 6, 11, 6, 12, 8, 2, 3, 2],
     [5, 11, 1, 5, 15, 8, 6, 9, 3, 3],
@@ -15,39 +15,56 @@ let passages =  [
     [4, 13, 12, 9, 5, 13, 12, 12, 12, 8]
 ];
 
-function top(cell) {
-    return !(cell & 1)
+function top(s, i, j) {
+    if (i < 0 || i >= s.length || j < 0 || j >= s[i].length) {
+        return false
+    }
+    return !(s[i][j] & 1);
 }
 
-function left(cell) {
-    return !(cell & 8)
+function bottom(s, i, j) {
+    if (i < 0 || i >= s.length || j < 0 || j >= s[i].length) {
+        return false
+    }
+    return !(s[i][j] & 2);
 }
 
-function right(cell) {
-    return !(cell & 4)
+function left(s, i, j) {
+    if (i < 0 || i >= s.length || j < 0 || j >= s[i].length) {
+        return false
+    }
+    return !(s[i][j] & 8);
+}
+
+function right(s, i, j) {
+    if (i < 0 || i >= s.length || j < 0 || j >= s[i].length) {
+        return false
+    }
+    return !(s[i][j] & 4);
 }
 
 function print(s) {
     let line;
-    line = ' '
+    line = '';
     for (let j = 0; j < s[0].length; j++) {
-        line += (top(s[0][j])  ? '__' : '  ')
+        // line += (top(s,0, j)  ? '__' : '  ')
+        line += (top(s, 0, j - 1)  ? '_' : ' ') + (top(s, 0, j )  ? '_' : ' ');
     }
     console.log(line);
     for (let i = 0; i < s.length; i++ ) {
         line = '';
         const len = s[i].length;
         for (let j = 0; j < len; j++) {
-            line += (left(s[i][j])  ? '|' : ' ')
-            line += (top(s[i+1][j])  ? '_' : ' ')
+            line += (left(s, i, j)  ? '|' : (bottom(s, i, j - 1)  ? '_' : ' '));
+            line += (bottom(s, i, j)  ? '_' : ' ');
         }
-        line += (right(s[i][len - 1])  ? '|' : ' ')
+        line += (right(s, i, len - 1)  ? '|' : ' ')
         console.log(line);
     }
 }
 
 /* Result:
- ___________________
+ __________________
 |_   _| |  _| |  _| |
 |_  |_   _______|  _|
 | | |   |  ___| | | |

@@ -1,31 +1,17 @@
-# Day 06
+# Day 07
 
-What is VCS and why do we need it?
+another assignment
 
-## Introduction
+# eloquent javascript
 
-https://vimeo.com/41027679
+https://eloquentjavascript.net/index.html
 
+Read the introduction, chapter 1 and chapter 2.
 
-## Git
+Do the three exercises at the end of chapter 2.
 
-### What is git?
+Create a new file for each exercise and commit
+them to github.
 
-https://www.youtube.com/watch?v=xvwBtODV0ms
-
-https://guides.github.com/introduction/git-handbook/
-
-
-### What is git?
-
-https://www.youtube.com/watch?v=xvwBtODV0ms
-
-https://guides.github.com/introduction/git-handbook/
-
-
-### Clone existing project
-
-    git clone https://github.com/m-31/maze.git
-
-
+https://eloquentjavascript.net/index.html
 
