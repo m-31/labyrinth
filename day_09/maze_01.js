@@ -28,57 +28,9 @@ let passages =  [
     [4, 13, 12, 9, 5, 13, 12, 12, 12, 8]
 ];
 
-function notValid(s, i, j) {
-    return (i < 0 || i >= s.length || j < 0 || j >= s[i].length);
-}
-
-function top(s, i, j) {
-    if (notValid(s, i, j)) {
-        return false
-    }
-    return !(s[i][j] & 1);
-}
-
-function bottom(s, i, j) {
-    if (notValid(s, i, j)) {
-        return false
-    }
-    return !(s[i][j] & 2);
-}
-
-function left(s, i, j) {
-    if (notValid(s, i, j)) {
-        return false
-    }
-    return !(s[i][j] & 8);
-}
-
-function right(s, i, j) {
-    if (notValid(s, i, j)) {
-        return false
-    }
-    return !(s[i][j] & 4);
-}
-
 // print the maze on console
 function print(s) {
-    let line;
-    line = '';
-    for (let j = 0; j < s[0].length; j++) {
-        // line += (top(s,0, j)  ? '__' : '  ')
-        line += (top(s, 0, j - 1)  ? '_' : ' ') + (top(s, 0, j )  ? '_' : ' ');
-    }
-    console.log(line);
-    for (let i = 0; i < s.length; i++ ) {
-        line = '';
-        const len = s[i].length;
-        for (let j = 0; j < len; j++) {
-            line += (left(s, i, j)  ? '|' : (bottom(s, i, j - 1)  ? '_' : ' '));
-            line += (bottom(s, i, j)  ? '_' : ' ');
-        }
-        line += (right(s, i, len - 1)  ? '|' : ' ')
-        console.log(line);
-    }
+    // TODO: implement this method!
 }
 
 print(passages);
