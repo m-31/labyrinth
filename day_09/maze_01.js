@@ -1,6 +1,17 @@
 'use strict';
 
-// N, S, E, W = 1, 2, 4, 8
+//  passage directions:
+//
+//    top    == 1
+//    bottom == 2
+//    right  == 4
+//    left   == 8
+//
+//  combination examples:
+//
+//    14 == left | right
+//     7 == right | bottom | top
+//    ..
 
 let passages =  [
     [4, 14, 8, 2, 6, 8, 2, 6, 8, 3],
@@ -15,29 +26,33 @@ let passages =  [
     [4, 13, 12, 9, 5, 13, 12, 12, 12, 8]
 ];
 
+function notValid(s, i, j) {
+    return (i < 0 || i >= s.length || j < 0 || j >= s[i].length);
+}
+
 function top(s, i, j) {
-    if (i < 0 || i >= s.length || j < 0 || j >= s[i].length) {
+    if (notValid(s, i, j)) {
         return false
     }
     return !(s[i][j] & 1);
 }
 
 function bottom(s, i, j) {
-    if (i < 0 || i >= s.length || j < 0 || j >= s[i].length) {
+    if (notValid(s, i, j)) {
         return false
     }
     return !(s[i][j] & 2);
 }
 
 function left(s, i, j) {
-    if (i < 0 || i >= s.length || j < 0 || j >= s[i].length) {
+    if (notValid(s, i, j)) {
         return false
     }
     return !(s[i][j] & 8);
 }
 
 function right(s, i, j) {
-    if (i < 0 || i >= s.length || j < 0 || j >= s[i].length) {
+    if (notValid(s, i, j)) {
         return false
     }
     return !(s[i][j] & 4);
