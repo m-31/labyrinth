@@ -13,6 +13,8 @@
 //     7 == right | bottom | top
 //    ..
 
+// here comes the maze,
+// each cell codes the possible passages from this cell to it's neighbors
 let passages =  [
     [4, 14, 8, 2, 6, 8, 2, 6, 8, 3],
     [4, 11, 4, 15, 13, 12, 13, 9, 6, 9],
@@ -58,6 +60,7 @@ function right(s, i, j) {
     return !(s[i][j] & 4);
 }
 
+// print the maze on console
 function print(s) {
     let line;
     line = '';
@@ -78,7 +81,9 @@ function print(s) {
     }
 }
 
-/* Result:
+print(passages);
+
+/* the console log should look like this:
  __________________
 |_   _| |  _| |  _| |
 |_  |_   _______|  _|
@@ -91,7 +96,4 @@ function print(s) {
 |_  |_    |  _____|_|
 |_______|___________|
  */
-
-console.log(passages);
-print(passages);
 
