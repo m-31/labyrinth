@@ -1,17 +1,11 @@
-# Day 07
+# Day 09
 
-another assignment
+the first maze challenge
 
-# eloquent javascript
+# print the maze
 
-https://eloquentjavascript.net/index.html
+merge github pull request
 
-Read the introduction, chapter 1 and chapter 2.
+fetch new changes from git repo 
 
-Do the three exercises at the end of chapter 2.
-
-Create a new file for each exercise and commit
-them to github.
-
-https://eloquentjavascript.net/index.html
-
+complete print maze method

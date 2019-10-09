@@ -27,3 +27,11 @@ In short: **we learn how to code**
 ## Day 6: Simple Exercises
 [day_06](day_06/README.md)
 
+## Day 7: Simple Exercises
+[day_06](day_06/README.md)
+
+## Day 8: Simple Exercises
+[day_06](day_06/README.md)
+
+## Day 9: The first maze challenge
+[day_09](day_09/README.md)
