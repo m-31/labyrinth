@@ -35,3 +35,6 @@ In short: **we learn how to code**
 
 ## Day 9: The first maze challenge
 [day_09](day_09/README.md)
+
+## Day 10: The first maze challenge
+[day_09](day_09/README.md)
