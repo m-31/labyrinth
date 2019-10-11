@@ -1,4 +1,4 @@
-# Day 09
+# Day 09 - 10
 
 the first maze challenge
 
@@ -9,3 +9,5 @@ merge github pull request
 fetch new changes from git repo 
 
 complete print maze method
+
+push stable interim states to github
