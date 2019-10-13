@@ -33,8 +33,8 @@ In short: **we learn how to code**
 ## Day 8: Simple Exercises
 [day_06](day_06/README.md)
 
-## Day 9: The first maze challenge
+## Day 9 - 12: The first maze challenge
 [day_09](day_09/README.md)
 
-## Day 10: The first maze challenge
-[day_09](day_09/README.md)
+## Day 13: The second maze challenge
+[day_13](day_13/README.md)
