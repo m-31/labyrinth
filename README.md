@@ -36,5 +36,8 @@ In short: **we learn how to code**
 ## Day 9 - 12: The first maze challenge
 [day_09](day_09/README.md)
 
-## Day 13: The second maze challenge
+## Day 13: Print maze without passages
 [day_13](day_13/README.md)
+
+## Day 14: The second maze challenge
+[day_14](day_14/README.md)

@@ -71,9 +71,33 @@ function printMaze(s) {
 
 // initialize maze with walls at every cell
 function initializeMaze(rows, columns) {
+    let s = Array(rows);
+    for (let i = 0; i < rows; i++) {
+        s[i] = Array(columns).fill(0);
+    }
+    return s;
+}
+
+// starting with cell s[i][j] carve a passage to s[i + 1][j] if possible
+function carveDown(s, i, j) {
     // TODO
 }
 
-let maze = initializeMaze(10, 10);
-printMaze(maze);
+// starting with cell s[i][j] carve a passage to s[i][j + 1] if possible
+function carveRight(s, i, j) {
+    // TODO
+}
 
+// create maze by randomly carving passages for each cell
+function createBinaryTreeMaze(rows, columns) {
+    let s = initializeMaze(rows, columns);
+    for (let i = 0; i < rows; i++) {
+        for (let j = 0; j < columns; j++) {
+            // TODO: randomly either carve down or right (if possible)
+        }
+    }
+    return s;
+}
+
+let maze = createBinaryTreeMaze(10, 10);
+printMaze(maze);
