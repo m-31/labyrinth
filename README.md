@@ -39,5 +39,11 @@ In short: **we learn how to code**
 ## Day 13: Print maze without passages
 [day_13](day_13/README.md)
 
-## Day 14: The second maze challenge
+## Day 14 - 16: The second maze challenge
 [day_14](day_14/README.md)
+
+## Day 17 - 19: The third maze challenge
+[day_17](day_17/README.md)
+
+## Day 20 - 21: And Now For Something Completely Different 
+[day_21](day_21/README.md)
