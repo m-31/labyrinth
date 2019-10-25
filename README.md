@@ -47,3 +47,6 @@ In short: **we learn how to code**
 
 ## Day 20 - 21: And Now For Something Completely Different 
 [day_21](day_21/README.md)
+
+## Day 22 - 25: Html Home 
+[day_25](day_25/README.md)
